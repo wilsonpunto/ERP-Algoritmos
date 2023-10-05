@@ -4,10 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
 import java.util.ArrayList;
 
 // Controlador para manejar las solicitudes relacionadas con la venta de productos
@@ -21,6 +24,47 @@ public class VenderController {
     private VentasRepository ventasRepository;
     @Autowired
     private ProductosVendidosRepository productosVendidosRepository;
+    @Autowired
+    private ClientesRepository clientesRepository;
+
+    @GetMapping(value = "/agregar_cliente")  
+    public String agregarCliente(Model model) {
+        model.addAttribute("cliente", new Cliente());
+        return "redirect:/vender/";  
+    }
+
+    @GetMapping(value = "/mostrar_clientes")  
+    public String mostrarClientes(Model model) {
+        model.addAttribute("clientes", clientesRepository.findAll());
+        return "redirect:/vender/"; 
+    }
+
+    @PostMapping(value = "/eliminar_cliente")  
+    public String eliminarCliente(@ModelAttribute Cliente cliente, RedirectAttributes redirectAttrs) {
+        redirectAttrs
+                .addFlashAttribute("mensaje", "Eliminado correctamente")
+                .addFlashAttribute("clase", "warning");
+        clientesRepository.deleteById(cliente.getId());
+        return "redirect:/vender/";  
+    }
+    @PostMapping(value = "/agregar_cliente")
+    public String guardarCliente(@ModelAttribute @Valid Cliente cliente, BindingResult bindingResult, RedirectAttributes redirectAttrs) {
+        if (bindingResult.hasErrors()) {
+            return "redirect:/vender/";
+        }
+        if (clientesRepository.findByNit(cliente.getNit()) != null) {
+            redirectAttrs
+                    .addFlashAttribute("mensaje", "Ya existe un cliente con ese NIT")
+                    .addFlashAttribute("clase", "warning");
+            return "redirect:/vender/";
+        }
+        clientesRepository.save(cliente);
+        redirectAttrs
+                .addFlashAttribute("mensaje", "Agregado correctamente")
+                .addFlashAttribute("clase", "success");
+        return "redirect:/vender/";
+    }
+  
 
     // Método para manejar la solicitud POST a /vender/quitar/{indice}
     @PostMapping(value = "/quitar/{indice}")

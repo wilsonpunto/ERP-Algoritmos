@@ -30,61 +30,59 @@ public class Cliente {
     @NotNull(message = "Debes especificar la fecha de registro")
     private Date fechaRegistro;
 
-    public Cliente(String nombre, String apellido, String nit, Date fechaRegistro, Integer id) {
+    public Cliente() {
         this.nombre = nombre;
         this.apellido = apellido;
         this.nit = nit;
-        this.fechaRegistro = fechaRegistro;
+        this.fechaRegistro = new Date();
         this.id = id;
     }
-
-    public Cliente(String nombre, String apellido, String nit, Date fechaRegistro) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.nit = nit;
-        this.fechaRegistro = fechaRegistro;
-    }
-
-    public Cliente() {
-    }
-
+   
+  // Getter para el nombre
     public String getNombre() {
         return nombre;
     }
 
+    // Setter para el nombre
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    // Getter para el apellido
     public String getApellido() {
         return apellido;
     }
 
+    // Setter para el apellido
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
 
+    // Getter para el NIT
     public String getNit() {
         return nit;
     }
 
+    // Setter para el NIT
     public void setNit(String nit) {
         this.nit = nit;
     }
 
+    // Getter para la fecha de registro
     public Date getFechaRegistro() {
         return fechaRegistro;
     }
 
+    // Setter para la fecha de registro
     public void setFechaRegistro(Date fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+ // Getter para el ID
+ public Integer getId() {
+    return id;
 }
+
+// Setter para el ID
+public void setId(Integer id) {
+    this.id = id;
+}}

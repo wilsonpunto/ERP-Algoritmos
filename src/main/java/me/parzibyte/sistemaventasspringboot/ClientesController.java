@@ -19,12 +19,7 @@ public class ClientesController {
     private ClientesRepository clientesRepository;
 
     // Método para manejar la solicitud GET a /clientes/agregar
-    @GetMapping(value = "/agregar")
-    public String agregarCliente(Model model) {
-        model.addAttribute("cliente", new Cliente());
-        return "clientes/agregar_cliente";
-    }
-
+  
     // Método para manejar la solicitud GET a /clientes/mostrar
     @GetMapping(value = "/mostrar")
     public String mostrarClientes(Model model) {
@@ -43,29 +38,7 @@ public class ClientesController {
     }
 
     // Método para manejar la solicitud POST a /clientes/editar/{id}
-    @PostMapping(value = "/editar/{id}")
-    public String actualizarCliente(@ModelAttribute @Valid Cliente cliente, BindingResult bindingResult, RedirectAttributes redirectAttrs) {
-        if (bindingResult.hasErrors()) {
-            if (cliente.getId() != null) {
-                return "clientes/editar_cliente";
-            }
-            return "redirect:/clientes/mostrar";
-        }
-        Cliente posibleClienteExistente = clientesRepository.findByNit(cliente.getNit());
-
-        if (posibleClienteExistente != null && !posibleClienteExistente.getId().equals(cliente.getId())) {
-            redirectAttrs
-                    .addFlashAttribute("mensaje", "Ya existe un cliente con ese NIT")
-                    .addFlashAttribute("clase", "warning");
-            return "redirect:/clientes/agregar";
-        }
-        clientesRepository.save(cliente);
-        redirectAttrs
-                .addFlashAttribute("mensaje", "Editado correctamente")
-                .addFlashAttribute("clase", "success");
-        return "redirect:/clientes/mostrar";
-    }
-
+    
     // Método para manejar la solicitud GET a /clientes/editar/{id}
     @GetMapping(value = "/editar/{id}")
     public String mostrarFormularioEditar(@PathVariable int id, Model model) {
@@ -74,21 +47,5 @@ public class ClientesController {
     }
 
     // Método para manejar la solicitud POST a /clientes/agregar
-    @PostMapping(value = "/agregar")
-    public String guardarCliente(@ModelAttribute @Valid Cliente cliente, BindingResult bindingResult, RedirectAttributes redirectAttrs) {
-        if (bindingResult.hasErrors()) {
-            return "clientes/agregar_cliente";
-        }
-        if (clientesRepository.findByNit(cliente.getNit()) != null) {
-            redirectAttrs
-                    .addFlashAttribute("mensaje", "Ya existe un cliente con ese NIT")
-                    .addFlashAttribute("clase", "warning");
-            return "redirect:/clientes/agregar";
-        }
-        clientesRepository.save(cliente);
-        redirectAttrs
-                .addFlashAttribute("mensaje", "Agregado correctamente")
-                .addFlashAttribute("clase", "success");
-        return "redirect:/clientes/agregar";
-    }
+    
 }
