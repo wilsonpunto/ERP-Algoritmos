@@ -1,13 +1,15 @@
 package me.parzibyte.sistemaventasspringboot;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 public class Cliente {
@@ -29,6 +31,17 @@ public class Cliente {
 
     @NotNull(message = "Debes especificar la fecha de registro")
     private Date fechaRegistro;
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private Set<Venta> ventas;
+    public Set<Venta> getVentas() {
+        return ventas;
+    }
+    
+    public void setVentas(Set<Venta> ventas) {
+        this.ventas = ventas;
+    }
+    
 
     public Cliente() {
         this.nombre = nombre;

@@ -12,6 +12,19 @@ public class Venta {
     private Integer id;
     private String fechaYHora;
 
+    @OneToOne
+    @JoinColumn(name = "id_cliente")
+    private Cliente cliente;
+    
+    public Cliente getCliente() {
+        return cliente;
+    }
+    
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+        
+
     // La anotación @OneToMany indica que hay una relación de uno a muchos entre Venta y ProductoVendido
     @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL)
     private Set<ProductoVendido> productos;
@@ -59,4 +72,5 @@ public class Venta {
     public void setProductos(Set<ProductoVendido> productos) {
         this.productos = productos;
     }
+    
 }

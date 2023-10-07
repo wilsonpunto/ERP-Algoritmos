@@ -10,25 +10,31 @@
              th:text="${mensaje}"
              class="alert">
         </div>
-        <form  th:object="${cliente}" th:action="@{/vender/agregar_cliente}" method="post">
-            <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
+         <div style="margin-bottom: 20px;"></div>
+        <form th:object="${cliente}" th:action="@{/vender/agregar_cliente}" method="post" class="mb-4">
+            <div class="form-inline">
+                <div class="form-group mr-2">
+                    <label for="nombre">Nombre:</label>
+                    <input autofocus autocomplete="off" type="text" id="nombre" name="nombre" required class="form-control">
+                </div>
+                <div class="form-group mr-2">
+                    <label for="nit">NIT:</label>
+                    <input type="text" id="nit" name="nit" required class="form-control">
+                </div>
+                <div class="form-group mr-2">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" required class="form-control">
+                </div>
+               
             </div>
-            <div>
-                <label for="nit">NIT:</label>
-                <input type="text" id="nit" name="nit" required>
-            </div>
-            <div>
-                <label for="apellido">Apellido:</label>
-                <input type="apellido" id="email" name="apellido" required>
-            </div>
-            <button type="submit">Agregar Cliente</button>
+            <button type="submit" class="btn btn-primary mt-3" >Agregar Cliente</button>
+            </form>
+           
         </form>
-        
-        <form th:object="${producto}" th:action="@{/vender/agregar}" method="post">
+        <div style="margin-bottom: 20px;"></div>
+        <form th:object="${producto}" th:action="@{/vender/agregar}" method="post" >
             <div class="form-group">
-                <label for="codigo">Código de barras</label>
+                <label for="codigo"><strong>Código de barras</strong></label>
                 <input autofocus autocomplete="off" th:field="*{codigo}" id="codigo"
                        placeholder="Escanea el código o escríbelo y presiona Enter"
                        type="text"

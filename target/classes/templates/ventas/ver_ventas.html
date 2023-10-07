@@ -17,6 +17,7 @@
                 <tr>
                     <th>Fecha</th>
                     <th>Total</th>
+                    <th>Cliente</th>
                     <th>Productos</th>
                 </tr>
                 </thead>
@@ -24,6 +25,7 @@
                 <tr th:each="venta : ${ventas}">
                     <td th:text="${venta.fechaYHora}"></td>
                     <td th:text="${venta.total}"></td>
+                    <td th:text="${venta.cliente}"></td>
                     <td>
                         <table class="table table-bordered">
                             <thead>
