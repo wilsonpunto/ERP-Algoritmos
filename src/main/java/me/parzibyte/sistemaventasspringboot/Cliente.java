@@ -34,10 +34,14 @@ public class Cliente {
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private Set<Venta> ventas;
+
+    // Otros métodos y atributos de la clase
+
+    // Getter y setter para las ventas
     public Set<Venta> getVentas() {
         return ventas;
     }
-    
+
     public void setVentas(Set<Venta> ventas) {
         this.ventas = ventas;
     }

@@ -12,14 +12,17 @@ public class Venta {
     private Integer id;
     private String fechaYHora;
 
-    @OneToOne
-    @JoinColumn(name = "id_cliente")
-    private Cliente cliente;
-    
+    @ManyToOne // Muchas ventas pueden estar asociadas a un cliente
+    @JoinColumn(name = "cliente_id") // La columna en la tabla Venta que representa la relación con Cliente
+    private Cliente cliente; // Agregar un campo de tipo Cliente
+
+    // Otros métodos y atributos de la clase
+
+    // Getter y setter para el cliente
     public Cliente getCliente() {
         return cliente;
     }
-    
+
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
