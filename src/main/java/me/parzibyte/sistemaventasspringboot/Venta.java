@@ -12,13 +12,13 @@ public class Venta {
     private Integer id;
     private String fechaYHora;
 
-    @ManyToOne // Muchas ventas pueden estar asociadas a un cliente
-    @JoinColumn(name = "cliente_id") // La columna en la tabla Venta que representa la relación con Cliente
-    private Cliente cliente; // Agregar un campo de tipo Cliente
+    @OneToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
-    // Otros métodos y atributos de la clase
+    // Constructor, métodos getter y setter
 
-    // Getter y setter para el cliente
+    // Métodos getter y setter para el campo de tipo Cliente
     public Cliente getCliente() {
         return cliente;
     }
@@ -26,7 +26,6 @@ public class Venta {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-        
 
     // La anotación @OneToMany indica que hay una relación de uno a muchos entre Venta y ProductoVendido
     @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL)

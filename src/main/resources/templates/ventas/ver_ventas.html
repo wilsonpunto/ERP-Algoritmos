@@ -15,26 +15,43 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th>Fecha</th>
-                    <th>Total</th>
+                    <th>Fecha</th>            
                     <th>Cliente</th>
+                    <th>Total</th>
                     <th>Productos</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="venta : ${ventas}">
                     <td th:text="${venta.fechaYHora}"></td>
-                    <td th:text="${venta.total}"></td>
-                    <td th:text="${venta.cliente}"></td>
                     <td>
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Nit</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="cliente : ${venta.cliente}">
+                                <td th:text="${cliente.nit}"></td>
+                                <td th:text="${cliente.nombre}"></td>
+                                <td th:text="${cliente.apellido}"></td>
+                                
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td> 
+                    <td th:text="${venta.total}"></td>         
+                    <td>    
                         <table class="table table-bordered">
                             <thead>
                             <tr>
                                 <th>Nombre</th>
                                 <th>Código de barras</th>
                                 <th>Cantidad vendida</th>
-                                <th>Precio</th>
-                                <th>Total</th>
+                                <th>Precio</th>                           
                             </tr>
                             </thead>
                             <tbody>
@@ -42,8 +59,7 @@
                                 <td th:text="${producto.nombre}"></td>
                                 <td th:text="${producto.codigo}"></td>
                                 <td th:text="${producto.cantidad}"></td>
-                                <td th:text="${producto.precio}"></td>
-                                <td th:text="${producto.total}"></td>
+                                <td th:text="${producto.precio}"></td>                  
                             </tr>
                             </tbody>
                         </table>

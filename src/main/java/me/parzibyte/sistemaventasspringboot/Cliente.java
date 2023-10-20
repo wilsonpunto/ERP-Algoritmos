@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
@@ -32,20 +33,9 @@ public class Cliente {
     @NotNull(message = "Debes especificar la fecha de registro")
     private Date fechaRegistro;
 
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
-    private Set<Venta> ventas;
+    @OneToOne(mappedBy = "cliente")
+    private Venta venta;
 
-    // Otros métodos y atributos de la clase
-
-    // Getter y setter para las ventas
-    public Set<Venta> getVentas() {
-        return ventas;
-    }
-
-    public void setVentas(Set<Venta> ventas) {
-        this.ventas = ventas;
-    }
-    
 
     public Cliente() {
         this.nombre = nombre;
