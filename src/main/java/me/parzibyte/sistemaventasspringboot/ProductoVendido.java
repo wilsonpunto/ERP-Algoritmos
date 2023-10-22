@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class ProductoVendido {
     // La anotación @Id y @GeneratedValue indica que este campo es la clave primaria y su valor se generará automáticamente
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Float cantidad, precio;
     private String nombre, codigo;

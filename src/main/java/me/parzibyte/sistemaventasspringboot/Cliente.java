@@ -18,6 +18,7 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+
     @NotNull(message = "Debes especificar el nombre")
     @Size(min = 1, max = 50, message = "El nombre debe medir entre 1 y 50")
     private String nombre;
@@ -33,7 +34,7 @@ public class Cliente {
     @NotNull(message = "Debes especificar la fecha de registro")
     private Date fechaRegistro;
 
-    @OneToOne(mappedBy = "cliente")
+    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
     private Venta venta;
 
 

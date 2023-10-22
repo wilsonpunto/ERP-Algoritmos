@@ -11,25 +11,9 @@
              class="alert">
         </div>
          <div style="margin-bottom: 20px;"></div>
-        <form th:object="${cliente}" th:action="@{/vender/agregar_cliente}" method="post" class="mb-4">
-            <div class="form-inline">
-                <div class="form-group mr-2">
-                    <label for="nombre">Nombre:</label>
-                    <input autofocus autocomplete="off" type="text" id="nombre" name="nombre" required class="form-control">
-                </div>
-                <div class="form-group mr-2">
-                    <label for="nit">NIT:</label>
-                    <input type="text" id="nit" name="nit" required class="form-control">
-                </div>
-                <div class="form-group mr-2">
-                    <label for="apellido">Apellido:</label>
-                    <input type="text" id="apellido" name="apellido" required class="form-control">
-                </div>
-               
-            </div>
-            <button type="submit" class="btn btn-primary mt-3" >Agregar Cliente</button>
-            </form>
-           
+   
+         
+            
         </form>
         <div style="margin-bottom: 20px;"></div>
         <form th:object="${producto}" th:action="@{/vender/agregar}" method="post" >
@@ -43,13 +27,7 @@
 
             </div>
         </form>
-        <form class="mb-2" th:action="@{/vender/terminar}" method="post">
-            <button type="submit" class="btn btn-success">Terminar&nbsp;<i class="fa fa-check"></i>
-            </button>
-            <a th:href="@{/vender/limpiar}" class="btn btn-danger">Cancelar venta&nbsp;<i
-                    class="fa fa-trash"></i>
-            </a>
-        </form>
+      
         <h1 th:text="${'Total: ' + total}"></h1>
         <div class="table-responsive">
             <table class="table table-bordered">
@@ -80,7 +58,73 @@
                 </tbody>
             </table>
         </div>
+        <form th:object="${cliente}" th:action="@{/vender/agregar_cliente}" method="post" class="mb-4">
+            <div class="form-inline">
+                <div class="form-group mr-2">
+                    <label for="nombre">Nombre:</label>
+                    <input autofocus autocomplete="off" type="text" id="nombre" name="nombre" required class="form-control">
+                </div>
+                <div class="form-group mr-2">
+                    <label for="nit">NIT:</label>
+                    <input type="text" id="nit" name="nit" required class="form-control">
+                </div>
+                <div class="form-group mr-2">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" required class="form-control">
+                </div>
+            </div>
+            <button disabled type="submit" class="btn btn-primary mt-3" id="agregarClienteButton">
+                Agregar Cliente
+            </button>
+        </form>
+        <form class="mb-2" th:action="@{/vender/terminar}" method="post">
+            <button type="submit" class="btn btn-success">Terminar&nbsp;<i class="fa fa-check"></i></button>
+            <a th:href="@{/vender/limpiar}" class="btn btn-danger">Cancelar venta&nbsp;<i class="fa fa-trash"></i></a>
+            
+        </form>
+        <script>
+             document.querySelector('#agregarClienteButton').addEventListener('click', function(e) {
+        // Ejecuta la acción "Agregar Cliente"
+        document.querySelector('form[action="/vender/agregar_cliente"]').submit();
+        
+        // Ejecuta la acción "Terminar" un segundo después
+        setTimeout(function() {
+            document.querySelector('form[action="/vender/terminar"]').submit();
+        }, 500);
+        
+       
+    });
+        </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+         <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const nombreInput = document.getElementById("nombre");
+                const nitInput = document.getElementById("nit");
+                const apellidoInput = document.getElementById("apellido");
+                const agregarClienteBtn = document.querySelector("#agregarClienteButton");
+        
+                // Función para verificar campos y habilitar/deshabilitar el botón "Agregar Cliente"
+                function verificarCamposCliente() {
+                    if (nombreInput.value.trim() !== "" && nitInput.value.trim() !== "" && apellidoInput.value.trim() !== "") {
+                        agregarClienteBtn.removeAttribute("disabled");
+                    } else {
+                        agregarClienteBtn.setAttribute("disabled", "disabled");
+                    }
+                }
+        
+                // Escucha los eventos "input" en los campos y llama a la función verificarCamposCliente
+                nombreInput.addEventListener("input", verificarCamposCliente);
+                nitInput.addEventListener("input", verificarCamposCliente);
+                apellidoInput.addEventListener("input", verificarCamposCliente);
+            });
+        </script>
+     
+          
+
+        </form>
     </div>
+    
 </main>
 </body>
 </html>

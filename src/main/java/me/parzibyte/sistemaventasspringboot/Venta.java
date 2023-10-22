@@ -5,16 +5,19 @@ import java.util.Set;
 
 // La anotación @Entity indica que esta clase es una entidad JPA
 @Entity
+@SequenceGenerator(name = "mi_secuencia", sequenceName = "mi_secuencia", initialValue = 2, allocationSize = 1)
 public class Venta {
     // La anotación @Id y @GeneratedValue indica que este campo es la clave primaria y su valor se generará automáticamente
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Integer id;
     private String fechaYHora;
 
     @OneToOne
+
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+    
 
     // Constructor, métodos getter y setter
 

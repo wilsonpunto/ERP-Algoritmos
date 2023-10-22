@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 @Entity
 public class Producto {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull(message = "Debes especificar el nombre")

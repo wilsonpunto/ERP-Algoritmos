@@ -39,7 +39,27 @@ public class VenderController {
         return "redirect:/vender/"; 
     }
 
-   
+    @PostMapping(value = "/eliminar_cliente")  
+    public String eliminarCliente(@ModelAttribute Cliente cliente, RedirectAttributes redirectAttrs) {
+        redirectAttrs
+                .addFlashAttribute("mensaje", "Eliminado correctamente")
+                .addFlashAttribute("clase", "warning");
+        clientesRepository.deleteById(cliente.getId());
+        return "redirect:/vender/";  
+    }
+    @PostMapping(value = "/agregar_cliente")
+    public String guardarCliente(@ModelAttribute @Valid Cliente cliente, BindingResult bindingResult, RedirectAttributes redirectAttrs) {
+        if (bindingResult.hasErrors()) {
+            return "redirect:/vender/";
+        }
+        if (clientesRepository.findByNit(cliente.getNit()) != null) {
+                              
+            return "redirect:/vender/";
+        }
+        clientesRepository.save(cliente);
+        
+        return "redirect:/vender/";
+    }
   
 
     // Método para manejar la solicitud POST a /vender/quitar/{indice}
