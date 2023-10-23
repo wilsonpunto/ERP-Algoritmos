@@ -19,6 +19,7 @@
                     <th>Cliente</th>
                     <th>Total</th>
                     <th>Productos</th>
+                    <th>Eliminar</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,6 +44,7 @@
                             </tbody>
                         </table>
                     </td> 
+                    
                     <td th:text="${venta.total}"></td>         
                     <td>    
                         <table class="table table-bordered">
@@ -51,7 +53,8 @@
                                 <th>Nombre</th>
                                 <th>Código de barras</th>
                                 <th>Cantidad vendida</th>
-                                <th>Precio</th>                           
+                                <th>Precio</th>
+                         
                             </tr>
                             </thead>
                             <tbody>
@@ -61,10 +64,21 @@
                                 <td th:text="${producto.cantidad}"></td>
                                 <td th:text="${producto.precio}"></td>                  
                             </tr>
+                            
                             </tbody>
+                           
                         </table>
+                        
                     </td>
+                        <td>
+                            <form th:action="@{/ventas/pdf}" method="post">
+                                <input type="hidden" name="id" th:value="${venta.id}"/>
+                                <button type="submit" class="btn btn-danger">Generar pdf <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>         
                 </tr>
+                
                 </tbody>
             </table>
         </div>
