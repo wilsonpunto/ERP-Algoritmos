@@ -42,5 +42,6 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'mysql:mysql-connector-java'
+    implementation group: 'com.itextpdf', name: 'itext7-core', version: '7.1.12', ext: 'pom'
 }
 
