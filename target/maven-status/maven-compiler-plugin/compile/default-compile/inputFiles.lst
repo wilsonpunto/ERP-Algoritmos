@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\Cliente.java
 C:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\ClientesRepository.java
 C:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\Utiles.java
@@ -13,3 +14,20 @@ C:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-bo
 C:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\Venta.java
 C:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\Producto.java
 C:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\VenderController.java
+=======
+c:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\Cliente.java
+c:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\ClientesRepository.java
+c:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\Utiles.java
+c:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\ClientesController.java
+c:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\ProductosVendidosRepository.java
+c:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\ProductosController.java
+c:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\ProductosRepository.java
+c:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\VentasRepository.java
+c:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\VentasController.java
+c:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\ProductoParaVender.java
+c:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\ProductoVendido.java
+c:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\Application.java
+c:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\Venta.java
+c:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\Producto.java
+c:\Users\wil\Pictures\sistema-ventas-spring-boot-master\sistema-ventas-spring-boot-master\src\main\java\me\parzibyte\sistemaventasspringboot\VenderController.java
+>>>>>>> 5f2ad0bb1aa8421814968835f1fe1397dd136ea6

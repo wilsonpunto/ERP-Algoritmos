@@ -45,6 +45,7 @@
             <artifactId>html2pdf</artifactId>
             <version>3.0.1</version>
         </dependency>
+<<<<<<< HEAD
         <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -65,6 +66,8 @@
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
 </dependency>
+=======
+>>>>>>> 5f2ad0bb1aa8421814968835f1fe1397dd136ea6
 </dependencies>
  
     <properties>
